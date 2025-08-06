@@ -16,12 +16,14 @@ git clone https://github.com/IMSB-CBM/ReflexAmplitudeEstimation.git
 
 
 ### Repository Structure 
+```
 ReflexAmplitudeEstimation/
 ├── Folder 1/     % Short description of what's inside
 ├── Folder 2/     % ...
 ├── Folder 3/     % ...
 ├── Folder 4/     % ...
 └── README.md
+```
 
 ### How to use 
 Add some description
