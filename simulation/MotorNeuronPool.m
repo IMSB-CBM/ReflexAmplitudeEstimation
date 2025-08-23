@@ -43,12 +43,12 @@ classdef MotorNeuronPool
     
     methods
         % -------------------------------------------------------------- %
-        % --------- Evaluate a all motorneurons from the pool ---------- %
+        % --------- Evaluate all motoneurons from the pool ---------- %
         function dy = evaluate_rhs_mn_pool(obj,time,y,drive)
             % Evaluates the right hand side of the motor neuron model of
-            % Cisi and Kohn 2008. Therein y is the state vector and drive
+            % Cisi and Kohn 2008. Therein, y is the state vector and drive
             % represents all Inputs of the model.
-            % y(2) is membrane potential in mV and t time in ms;
+            % y(2) is the membrane potential in mV and t time in ms;
             y=reshape(y,6,[]);
                 dy(1,:) = (-obj.Parameters(1,:).*(y(1,:)-obj.Parameters(11,:))- ...
                     obj.Parameters(5,:).*(y(1,:)-y(2,:)))./obj.Parameters(7,:); % Vm dendrite
@@ -108,7 +108,7 @@ classdef MotorNeuronPool
         end
         % -------------------------------------------------------------- %
         function obj = set_init_state(obj,value,state_idx,mu_idx)
-            % Set a specific inital state, defined by state_idx and 
+            % Set a specific initial state, defined by state_idx and 
             % mu_idx to the specified value.
             obj.Parameters(state_idx,mu_idx) = value; 
         end
@@ -117,7 +117,7 @@ classdef MotorNeuronPool
                                                         ld,ls,rd,rs,type,a)
             % Distribute the model parameters between two specified extreme
             % values. As default setting it is assumed that the 
-            % Parameters Rmd,Rms,ld,ls,rd and rs are exponetially 
+            % Parameters Rmd,Rms,ld,ls,rd and rs are exponentially 
             % distributed (cf. Negro & Farina (2011). 
             % Further, Cm and Ri are constant for all MNs.
             N = obj.NumberOfMUs;
@@ -191,6 +191,7 @@ classdef MotorNeuronPool
     end
     
 end
+
 
 
 
