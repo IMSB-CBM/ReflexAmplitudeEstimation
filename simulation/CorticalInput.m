@@ -20,18 +20,18 @@
 %
 function [CI] = CorticalInput(mean_CI,CCoV,ndt,fs,rand_seed,ICoV,NumOfMNs)
 % Description:
-%   Creates cortical input signals for the specified number of motorneurons
+%   Creates cortical input signals for the specified number of motoneurons
 %   and with the specified signal properties
 % Input:
-%   * mean: mean value of common cortical input 
+%   * mean: mean value of common cortical input in uA
 %   * CCoV: Coefficient of variance of common noise in %
 %   * ndt: Number of time points
-%   * fs: sampling frequency
+%   * fs: sampling frequency in 1/s
 %   * rand_seed: seed for random algorithm
 %   * ICoV: Coefficient of independent noise in %
 %   * NumOfMNs: Number of motor neurons
 % Output:
-%   * CI: Cortical input for each MN
+%   * CI: Cortical input signal for each MN in uA
         
 % Bandpass filtered common drive + lowpass filtered independent noise
         
