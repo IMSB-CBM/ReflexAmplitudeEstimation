@@ -58,9 +58,7 @@ mn_pool = mn_pool.init_motor_neuron_pool(NumberOfMNs);
 mn_pool = mn_pool.distribute_parameters(1,0.07,[14.4 6.05],...
     [1.15 0.65],[0.55 1.06], [77.5e-4 113e-4],[20.75e-4 46.25e-4],[38.75e-4 56.5e-4]);
 % mn_pool = mn_pool.distribute_parameters(1,0.07,[14.4 6.05],...
-   % [1.15 0.65],[0.55 1.06], [77.5e-4 113e-4],[20.75e-4 46.25e-4],[38.75e-4 56.5e-4],'exp',10);
-%
-% To Do: Add non default parameters here!
+   % [1.15 0.65],[0.55 1.06], [77.5e-4 113e-4],[20.75e-4 46.25e-4],[38.75e-4 56.5e-4],'exp',10); % factors used: 10, 25, 100 (default), 500, 1000
 %
 %% Run the model
 parpool(number_of_cores); % starts up parallel system
@@ -128,7 +126,7 @@ function [mn_States,stm_Vec] = psc2spiketrain(mn_pool,dt,num_runs,CycleDuration,
     PSC = zeros(mn_pool.NumberOfMUs,length(times)); % Initialize PSC vector 
 
     % Stimulation times
-    rng(rand_seed_perturbation,'twister'); % Make sure the rand alogortihm gives the same values for every run
+    rng(rand_seed_perturbation,'twister'); % Make sure the rand algorithm gives the same values for every run
     reg_Vec = (CycleDuration/2)/dt:CycleDuration/dt:ndt-(CycleDuration/2)/dt; % perturbation times
     rand_Vec = -100/dt+(200/dt)*rand(1,length(reg_Vec));  % Variation in perturbation times +/- 100 ms
     stm_Vec = round(reg_Vec+rand_Vec); % stimulation times
