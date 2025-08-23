@@ -46,7 +46,7 @@ if size(firing_times,1) == 1
     firing_times = firing_times';
 end   
 
-% Prealloctae output variables
+% Preallocate output variables
 PSF = cell(num_MN,1);
 PSTH = cell(num_MN,1);
 
@@ -74,7 +74,7 @@ for mn = 1:num_MN %loop over number of motor neurons
             events2 = []; % clear events2
             events2=find(instant>=(stm_Vec(i)+time_frame(k)) & instant<(stm_Vec(i)+time_frame(k)+bw)); % Find discharge times within one sampling time step bw
             if ~isempty(events2) % If times2 is Not empty -> there is a discharge within the time step
-                PSTHGr(k)=PSTHGr(k)+length(events2); % The number of indentified events is added to the existing number for that time step
+                PSTHGr(k)=PSTHGr(k)+length(events2); % The number of identified events is added to the existing number for that time step
             end
         end
     end
